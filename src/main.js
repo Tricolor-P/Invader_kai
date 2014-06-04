@@ -17,12 +17,13 @@ window.onload = function(){
 		core.rootScene.addChild(rootSceneLabel);
 		
 		core.rootScene.addEventListener('enterframe', function(e){
-			if(core.input.up) core.pushScene(core.title);
+			if(core.input.up) core.pushScene(core.titleScene);
 			if(core.input.down) core.end();
 		});
 	};
 	
-	core.title = new Title;
+	//タイトルシーンの追加
+	core.titleScene = new Title;
 
 	
 	core.start();
