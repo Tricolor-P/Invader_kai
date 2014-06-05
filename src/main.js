@@ -6,26 +6,35 @@ window.onload = function(){
 	
 	core.fps = 16;
 	
+	//画像のロード
+	core.preload('img/home_battleButton.png');
+	
 	core.onload = function(){
 		//ゲーム開始
 		
 		var rootSceneLabel = new Label('ここはルートシーンです');
-		rootSceneLabel.x = core.width/2 - 14*10/2;
-		rootSceneLabel.y = core.height/2 - rootSceneLabel.height/2;
-		rootSceneLabel.color = '#0000FF';
-		rootSceneLabel.font = '14px sens-serif';
+		rootSceneLabel.x = core.width/2 - 20*10/2;
+		rootSceneLabel.y = core.height/2 - 20/2;
+		rootSceneLabel.color = '#FFFFFF';
+		rootSceneLabel.font = '20px sens-serif';
 		core.rootScene.addChild(rootSceneLabel);
 		
 		core.rootScene.backgroundColor = "#000000";
 		
 		core.rootScene.addEventListener('enterframe', function(e){
-			if(core.input.up) core.pushScene(core.titleScene(true));
+			if(core.input.right) core.pushScene(core.titleScene(true));
 			if(core.input.down) core.end();
 		});
 	};
 	
 	//タイトルシーンの追加
 	core.titleScene = function(titlePlayingIs){ return Title(titlePlayingIs); };
+	//ホームシーンの追加
+	core.homeScene = function(){ return Home(); };
+	//バトルシーンの追加
+	core.battleScene = function(){ return Battle(); };
+	//戦果シーンの追加
+	core.resultScene = function(){ return Result(); };
 
 	
 	core.start();

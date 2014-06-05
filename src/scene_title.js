@@ -1,15 +1,15 @@
 //タイトル画面のシーン
 
 Title = function(tp){
-	scene = new Scene();
-	scene.backgroundColor = "#000080";
+	var title = new Scene();
+	title.backgroundColor = "#000000";
 	
 	//タイトルについての記述ここから	
-	titleLabel = new Label('インベーダー改（仮）');
-	titleLabel.x = core.width/2 - 14*2;
-	titleLabel.y = core.height/2 - titleLabel.height/2;
-	titleLabel.color = '#00FF00';
-	titleLabel.font = '14px sens-serif';
+	var titleLabel = new Label('インベーダー改（仮）');
+	titleLabel.x = core.width/2 - 20*8/2;
+	titleLabel.y = core.height/2 - 20/2;
+	titleLabel.color = '#2222FF';
+	titleLabel.font = '20px sens-serif';
 	titleLabel.startIs = tp;
 	titleLabel.endIs = false;
 	titleLabel.addEventListener('enterframe', function(e){
@@ -19,14 +19,17 @@ Title = function(tp){
 		}
 		
 	});
-	scene.addChild(titleLabel);
+	title.addChild(titleLabel);
+	titleLabel
 	//タイトルについての記述ここまで
 	
-	scene.addEventListener('enterframe', function(e){
-		console.log(titleLabel.endIs);
-		if(core.input.right && titleLabel.endIs) {
+	title.addEventListener('enterframe', function(e){
+		if(core.input.left && titleLabel.endIs) {
 			core.popScene();
 		}
+		if(core.input.right && titleLabel.endIs){
+			core.replaceScene(core.homeScene());
+		}
 	});
-	return scene;
+	return title;
 };
