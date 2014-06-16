@@ -6,7 +6,7 @@ Result = function(){
 	result.backgroundColor = "#000000";
 	
 	//タイトルについての記述ここから	
-	resultLabel = new Label('ここは戦果ページです');
+	var resultLabel = new Label('ここは戦果ページです');
 	resultLabel.x = core.width/2 - 20*5;
 	resultLabel.y = core.height/2 - 20/2;
 	resultLabel.color = '#FF00FF';

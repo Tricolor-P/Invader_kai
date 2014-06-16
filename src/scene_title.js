@@ -20,7 +20,7 @@ Title = function(tp){
 		
 	});
 	title.addChild(titleLabel);
-	titleLabel
+	
 	//タイトルについての記述ここまで
 	
 	title.addEventListener('enterframe', function(e){

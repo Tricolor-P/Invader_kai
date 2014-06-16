@@ -6,8 +6,20 @@ window.onload = function(){
 	
 	core.fps = 16;
 	
-	//画像のロード
-	core.preload('img/home_battleButton.png');
+	//画像のプリロード
+	core.preload('img/home_enterBattleBtn.png');
+	core.preload('img/home_enterEquipBtn.png');
+	core.preload('img/battle_testBtn.png');
+	//SEのプリロード
+	core.preload('se/enterBattle.mp3');
+	core.preload('se/trueBtn.mp3');
+	
+	//SEのロード
+	//mp3の場合はmp3Durationを再生してみて手動設定のこと
+	core.seEnterBattle = Sound.load('se/enterBattle.mp3');
+	core.seEnterBattle.mp3Duration = 1.224;
+	core.seTrueBtn = Sound.load('se/trueBtn.mp3');
+	core.seTrueBtn.mp3Duration = 1.22775;
 	
 	core.onload = function(){
 		//ゲーム開始
@@ -22,7 +34,8 @@ window.onload = function(){
 		core.rootScene.backgroundColor = "#000000";
 		
 		core.rootScene.addEventListener('enterframe', function(e){
-			if(core.input.right) core.pushScene(core.titleScene(true));
+			//if(core.input.right) core.pushScene(core.titleScene(true));
+			if(core.input.right) core.pushScene(core.homeScene());
 			if(core.input.down) core.end();
 		});
 	};
@@ -35,6 +48,8 @@ window.onload = function(){
 	core.battleScene = function(){ return Battle(); };
 	//戦果シーンの追加
 	core.resultScene = function(){ return Result(); };
+	//装備選択シーンの追加
+	core.equipScene = function(){ return Equip();};
 
 	
 	core.start();

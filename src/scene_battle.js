@@ -6,7 +6,7 @@ Battle = function(){
 	battle.backgroundColor = "#000000";
 	
 	//タイトルについての記述ここから	
-	battleLabel = new Label('ここはバトルシーンです');
+	var battleLabel = new Label('ここはバトルシーンです');
 	battleLabel.x = core.width/2 - 20*5;
 	battleLabel.y = core.height/2 - 20/2;
 	battleLabel.color = '#FFFF00';
@@ -15,6 +15,18 @@ Battle = function(){
 	});
 	battle.addChild(battleLabel);
 	//タイトルについての記述ここまで
+	
+	//テストボタン配置
+	var testBtns = [];
+	for(var i = 0; i<15; i++){
+		var testBtn = new Sprite(32, 32);
+		testBtn.image = core.assets['img/battle_testBtn.png'];
+		testBtn.x = i*testBtn.width;
+		testBtn.y = 238;
+		battle.addChild(testBtn);
+		testBtns[i] = testBtn;
+	}
+	
 	
 	battle.addEventListener('enterframe', function(e){
 		if(core.input.left) {
