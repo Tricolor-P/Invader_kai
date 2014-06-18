@@ -17,7 +17,7 @@ Result = function(){
 	//タイトルについての記述ここまで
 	
 	result.addEventListener('enterframe', function(e){
-		if(core.input.left) {
+		if(core.input.a) {
 			core.popScene();
 		}
 	});

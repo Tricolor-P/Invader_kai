@@ -60,7 +60,7 @@ Home = function(){
 			enterEquipBtn.touchFlg = false;
 			core.pushScene(core.equipScene());
 		}
-		if(core.input.left) {
+		if(core.input.b) {
 			core.popScene();
 		}
 	});

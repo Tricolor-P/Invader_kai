@@ -16,7 +16,7 @@ Battle = function(){
 	battle.addChild(battleLabel);
 	//タイトルについての記述ここまで
 	
-	//テストボタン配置
+	//ボタンのテスト配置
 	var testBtns = [];
 	for(var i = 0; i<15; i++){
 		var testBtn = new Sprite(32, 32);
@@ -27,12 +27,17 @@ Battle = function(){
 		testBtns[i] = testBtn;
 	}
 	
+	//キャラクターの表示
+	var player = [];
+	player[0] = new Player(100, 100, 'Actor10.png');
+	battle.addChild(player[0]);
+	
 	
 	battle.addEventListener('enterframe', function(e){
-		if(core.input.left) {
-			core.popScene();
+		if(core.input.b) {
+			//core.popScene();
 		}
-		if(core.input.right){
+		if(core.input.a){
 			core.replaceScene(core.resultScene());
 		}
 	});

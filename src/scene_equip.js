@@ -17,7 +17,7 @@ Equip = function(){
 	//タイトルについての記述ここまで
 	
 	equip.addEventListener('enterframe', function(e){
-		if(core.input.left) {
+		if(core.input.b) {
 			core.popScene();
 		}
 	});

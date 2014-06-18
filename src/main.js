@@ -10,6 +10,7 @@ window.onload = function(){
 	core.preload('img/home_enterBattleBtn.png');
 	core.preload('img/home_enterEquipBtn.png');
 	core.preload('img/battle_testBtn.png');
+	core.preload('img/Actor10.png');
 	//SEのプリロード
 	core.preload('se/enterBattle.mp3');
 	core.preload('se/trueBtn.mp3');

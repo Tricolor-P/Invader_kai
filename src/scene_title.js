@@ -24,10 +24,10 @@ Title = function(tp){
 	//タイトルについての記述ここまで
 	
 	title.addEventListener('enterframe', function(e){
-		if(core.input.left && titleLabel.endIs) {
+		if(core.input.b && titleLabel.endIs) {
 			core.popScene();
 		}
-		if(core.input.right && titleLabel.endIs){
+		if(core.input.a && titleLabel.endIs){
 			core.replaceScene(core.homeScene());
 		}
 	});
