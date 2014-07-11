@@ -3,14 +3,33 @@ enchant();
 window.onload = function(){
 	core = new Core(480, 270);
 	//ゲームの初期化処理
-	
 	core.fps = 16;
+	core.keybind(88, 'a');
+	core.keybind(90, 'b');
 	
+	core.characterList= {
+		0: {name:'Actor10', lv:1, status:characterTable['Actor10'], slots:{0:0, 1:null, 2:null}},
+		1: {name:'Actor10', lv:1, status:characterTable['Actor10'], slots:{0:1, 1:2   , 2:null}}
+	};
+	core.magicList = {
+		0: {name:'FireBall', lv:1, status:magicTable['Fireball']},
+		1: {name:'FireBall', lv:1, status:magicTable['Fireball']},
+		2: {name:'Waterball', lv:1, status:magicTable['Waterball']}
+	};
+	
+	/*
+	//セーブデータ設定
+	enchant.nineleap.memory.LocalStorage.DEBUG_MODE = true;
+	enchant.nineleap.memory.LocalStorage.GAME_ID = 'magic_shoot';
+	core.memory.magic.preload();
+	core.memory.character.preload();
+	*/
 	//画像のプリロード
 	core.preload('img/home_enterBattleBtn.png');
 	core.preload('img/home_enterEquipBtn.png');
-	core.preload('img/battle_testBtn.png');
+	core.preload('img/battle_magicBtn.png');
 	core.preload('img/Actor10.png');
+	core.preload('img/fireBall.png');
 	//SEのプリロード
 	core.preload('se/enterBattle.mp3');
 	core.preload('se/trueBtn.mp3');
@@ -23,8 +42,18 @@ window.onload = function(){
 	core.seTrueBtn.mp3Duration = 1.22775;
 	
 	core.onload = function(){
-		//ゲーム開始
+		//メモリの初期化
+		/*
+		if(core.memory.character.data == NULL){
+			core.memory.character.data = core.character.data;
+		}
+		if(core.memory.magic.data == NULL){
+			core.memory.magic.data = core.magic.data;
+		}
+		*/
 		
+		
+		//ゲーム開始
 		var rootSceneLabel = new Label('ここはルートシーンです');
 		rootSceneLabel.x = core.width/2 - 20*10/2;
 		rootSceneLabel.y = core.height/2 - 20/2;

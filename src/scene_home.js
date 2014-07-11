@@ -2,8 +2,8 @@
 
 
 Home = function(){
-	var home = new Scene();
-	home.backgroundColor = "#000000";
+	var scene = new Scene();
+	scene.backgroundColor = "#000000";
 	
 	//ホームラベルについての記述ここから	
 	var homeLabel = new Label('ここはホームシーンです');
@@ -13,7 +13,7 @@ Home = function(){
 	homeLabel.font = '20px sens-serif';
 	homeLabel.addEventListener('enterframe', function(e){
 	});
-	home.addChild(homeLabel);
+	scene.addChild(homeLabel);
 	//ホームラベルについての記述ここまで
 	
 	//出撃ボタンについてここから
@@ -22,7 +22,7 @@ Home = function(){
 	enterBattleBtn.x = core.width/3  - enterBattleBtn.width/2;
 	enterBattleBtn.y = core.height/2 - enterBattleBtn.height/2;
 	enterBattleBtn.touchFlg = false;
-	home.addChild(enterBattleBtn);
+	scene.addChild(enterBattleBtn);
 	enterBattleBtn.addEventListener('touchend', function(e){
 		console.log('touch enterBattleBtn');
 		if(!enterEquipBtn.touchFlg){
@@ -39,7 +39,7 @@ Home = function(){
 	enterEquipBtn.x = core.width* 2/3 - enterEquipBtn.width/2;
 	enterEquipBtn.y = core.height/2 - enterEquipBtn.height/2;
 	enterEquipBtn.touchFlg = false;
-	home.addChild(enterEquipBtn);
+	scene.addChild(enterEquipBtn);
 	enterEquipBtn.addEventListener('touchend', function(e){
 		console.log('touch enterEquiBtn');
 		if(!enterBattleBtn.touchFlg){
@@ -50,7 +50,7 @@ Home = function(){
 	//enterEquipボタンについてここまで
 
 
-	home.addEventListener('enterframe', function(e){
+	scene.addEventListener('enterframe', function(e){
 		//console.log(core.seTrueBtn.currentTime);
 		if(core.seEnterBattle.currentTime==core.seEnterBattle.mp3Duration && enterBattleBtn.touchFlg){
 			enterBattleBtn.touchFlg = false;
@@ -64,5 +64,5 @@ Home = function(){
 			core.popScene();
 		}
 	});
-	return home;
+	return scene;
 };
